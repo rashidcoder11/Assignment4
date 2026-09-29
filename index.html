@@ -1,109 +1,138 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Table Task</title>
+    <title>HTML Table Task</title>
 
     <style>
 
         body {
             font-family: "Times New Roman", serif;
+            margin: 20px;
         }
 
-        /* ---------- TABLE 1 ---------- */
+        /* ================= WEATHER STATION ================= */
+
+        .weather-title {
+            text-align: center;
+            font-size: 50px;
+            margin: 10px 0;
+        }
 
         .weather {
             width: 92%;
             margin: auto;
-            border: 5px solid #888888;
-            border-collapse: separate;
-            border-spacing: 7px;
+            border: 6px solid #777;
+            border-spacing: 5px;
+            table-layout: fixed;
         }
 
         .weather th,
         .weather td {
-            border: 3px solid #888888;
+            border: 3px solid #888;
             padding: 8px;
-            font-size: 48px;
+            text-align: center;
+            vertical-align: middle;
+            overflow: hidden;
         }
 
         .weather th {
-            font-weight: bold;
-        }
-
-        .weather-title {
-            text-align: center;
-            font-size: 52px;
-            margin: 0 0 5px 0;
-        }
-
-
-        /* ---------- TABLE 2 ---------- */
-
-        .language {
-            width: 65%;
-            margin: auto;
-            border: 7px solid #888888;
-            border-collapse: separate;
-            border-spacing: 7px;
-        }
-
-        .language th,
-        .language td {
-            border: 5px solid #888888;
-            padding: 8px;
-            font-size: 48px;
-        }
-
-        .language th {
-            font-weight: bold;
-        }
-
-
-        /* ---------- TABLE 3 ---------- */
-
-        .device {
-            width: 74%;
-            margin: auto;
-            border: 2px solid #888888;
-            border-collapse: separate;
-            border-spacing: 4px;
-        }
-
-        .device th,
-        .device td {
-            border: 3px solid #888888;
-            padding: 7px;
-            font-size: 36px;
-        }
-
-        .device th {
-            background-color: #35c5c8;
-            font-weight: bold;
             font-size: 38px;
         }
 
-        .specification {
-            border: 3px solid #888888;
-            border-collapse: separate;
-            border-spacing: 5px;
+        .weather td {
+            font-size: 34px;
+        }
+
+        .weather .station {
+            width: 20%;
+        }
+
+        .weather .temperature {
+            width: 14%;
+        }
+
+        .weather .humidity {
+            width: 20%;
+        }
+
+        .weather .weather-name {
+            width: 20%;
+        }
+
+
+        /* ================= LANGUAGE AND FRAMEWORKS ================= */
+
+        .languages {
+            width: 65%;
+            margin: 45px auto;
+            border: 6px solid #888;
+            border-spacing: 6px;
+            table-layout: fixed;
+        }
+
+        .languages th,
+        .languages td {
+            border: 4px solid #888;
+            padding: 8px;
+            font-size: 38px;
+            text-align: left;
+            vertical-align: middle;
+            overflow: hidden;
+        }
+
+        .languages th {
+            font-size: 44px;
+        }
+
+
+        /* ================= DEVICE SPECIFICATIONS ================= */
+
+        .devices {
+            width: 96%;
+            margin: auto;
+            border: 3px solid #888;
+            border-spacing: 4px;
+            table-layout: fixed;
+        }
+
+        .devices th,
+        .devices td {
+            border: 2px solid #888;
+            padding: 7px;
+            font-size: 30px;
+            text-align: left;
+            vertical-align: middle;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+
+        .devices th {
+            text-align: center;
+            background-color: #35C4C4;
+            font-size: 32px;
+        }
+
+        .specifications {
+            padding: 3px !important;
+        }
+
+        .inner {
             width: 100%;
+            border: 2px solid #888;
+            border-spacing: 3px;
+            table-layout: fixed;
         }
 
-        .specification th {
-            background-color: #ffd966;
-            border: 3px solid #888888;
-            font-size: 32px;
+        .inner th,
+        .inner td {
+            border: 2px solid #888;
             padding: 5px;
+            font-size: 27px;
         }
 
-        .specification td {
-            border: 3px solid #888888;
-            font-size: 32px;
-            padding: 5px;
-        }
-
-        .space {
-            height: 35px;
+        .inner th {
+            background-color: #FFD95A;
+            text-align: center;
         }
 
     </style>
@@ -117,6 +146,14 @@
     <h1 class="weather-title">Weather Station</h1>
 
     <table class="weather">
+
+        <colgroup>
+            <col class="station">
+            <col class="temperature">
+            <col class="temperature">
+            <col class="humidity">
+            <col class="weather-name">
+        </colgroup>
 
         <tr>
             <th rowspan="2">Station</th>
@@ -149,12 +186,9 @@
     </table>
 
 
-    <div class="space"></div>
-
-
     <!-- LANGUAGE AND FRAMEWORKS -->
 
-    <table class="language">
+    <table class="languages">
 
         <tr>
             <th colspan="2">Language and Frameworks</th>
@@ -182,12 +216,15 @@
     </table>
 
 
-    <div class="space"></div>
-
-
     <!-- DEVICE SPECIFICATIONS -->
 
-    <table class="device">
+    <table class="devices">
+
+        <colgroup>
+            <col style="width: 27%;">
+            <col style="width: 21%;">
+            <col style="width: 52%;">
+        </colgroup>
 
         <tr>
             <th>Device</th>
@@ -196,14 +233,17 @@
         </tr>
 
         <tr>
+            <td>Smartphone</td>
+            <td>Apple</td>
 
-            <td rowspan="2">Smartphone</td>
+            <td class="specifications">
 
-            <td rowspan="2">Apple</td>
+                <table class="inner">
 
-            <td rowspan="2">
-
-                <table class="specification">
+                    <colgroup>
+                        <col style="width: 64%;">
+                        <col style="width: 36%;">
+                    </colgroup>
 
                     <tr>
                         <th>Model</th>
@@ -223,10 +263,6 @@
                 </table>
 
             </td>
-
-        </tr>
-
-        <tr>
         </tr>
 
         <tr>
